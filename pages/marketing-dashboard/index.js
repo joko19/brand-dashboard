@@ -4,7 +4,7 @@ export default function MarketingDashboard() {
     return (
         <Layout>
             <h1 className="text-3xl  font-bold underline" >
-                Home
+                Marketing Dashboard
             </h1>
         </Layout>
     )
