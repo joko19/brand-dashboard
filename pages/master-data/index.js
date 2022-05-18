@@ -1,10 +1,10 @@
-import Layout from '../Layout/Layout'
+import Layout from '../../Layout/Layout'
 
-export default function Home() {
+export default function MasterData() {
     return (
         <Layout>
             <h1 className="text-3xl  font-bold underline" >
-                Home
+                Master Data
             </h1>
         </Layout>
     )
