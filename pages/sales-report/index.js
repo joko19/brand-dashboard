@@ -3,7 +3,8 @@ import Card from '../../components/Cards/Card'
 import Layout from '../../Layout/Layout'
 import { IoIosStats } from 'react-icons/io'
 import { IoAlertSharp } from 'react-icons/io5'
-import {MdOutlineAttachMoney, MdOutlinePriceChange, MdShoppingCart} from 'react-icons/md'
+import { MdOutlineAttachMoney, MdOutlinePriceChange, MdShoppingCart } from 'react-icons/md'
+import { FaCaretDown, FaCaretUp } from 'react-icons/fa'
 import dynamic from 'next/dynamic';
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
@@ -21,7 +22,6 @@ export default function SalesReport() {
             xaxis: {
                 categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
             },
-
         },
         series: [
             {
@@ -57,10 +57,10 @@ export default function SalesReport() {
     ])
     const [dataChart, setDataChart] = useState({
         series: [{
-            name: 'Current Revenue',
+            name: 'Previous Revenue',
             data: [19, 25, 33, 29, 54, 17, 33, 21, 6, 5, 6, 12]
         }, {
-            name: 'Previous Revenue',
+            name: 'Current Revenue',
             data: [25, 17, 26, 69, 69, 31, 32, 6, 30, 49, 28, 24]
         }, {
             name: 'Average Revenue',
@@ -70,6 +70,7 @@ export default function SalesReport() {
             chart: {
                 height: 350,
                 type: 'area'
+
             },
             dataLabels: {
                 enabled: false
@@ -80,6 +81,7 @@ export default function SalesReport() {
             xaxis: {
                 categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Des"]
             },
+            colors: ['#d03737', '#00ff2f', '#0008ff']
         },
     })
 
@@ -88,6 +90,18 @@ export default function SalesReport() {
             {/* product performance */}
             <section>
                 <h1 className='text-red-500 font-bold text-3xl'>Product Performance</h1>
+                <div className='flex gap-4 mt-4 mb-4'>
+                    <select name="cars" id="cars" defaultValue="Sales Channel" className="text-red-500 cursor-pointer font-bold bg-white border-2 border-red-500 p-2 rounded-lg">
+                        <option value="volvo">Sales Chanel</option>
+                        <option value="volvo">Sales Chanel 1</option>
+                        <option value="volvo">Sales Chanel 2</option>
+                    </select>
+                    <select name="cars" id="cars" defaultValue="Sales Channel" className="text-red-500 cursor-pointer font-bold bg-white border-2 border-red-500 p-2 rounded-lg">
+                        <option value="volvo">Period</option>
+                        <option value="volvo">Period 1</option>
+                        <option value="volvo">Period 2</option>
+                    </select>
+                </div>
                 <div className='flex flex-col md:flex-row w-full gap-4'>
                     <div className='flex w-full md:w-1/2 bg-white rounded '>
                         <Card className='w-full'>
@@ -135,13 +149,19 @@ export default function SalesReport() {
                                                 {item.nameProduct}
                                             </td>
                                             <td className="px-6 h-12 whitespace-nowrap text-center">
-                                                {item.price}
+                                                <div className='flex'>
+                                                    {item.price} <FaCaretUp color='green' /> <span className='text-green-500'>20%</span>
+                                                </div>
                                             </td>
                                             <td className="px-6 h-12 whitespace-nowrap text-center">
-                                                {item.totalSold}
+                                                <div className='flex'>
+                                                    {item.price} <FaCaretDown color='red' /> <span className='text-red-500'>176</span>
+                                                </div>
                                             </td>
                                             <td className="px-6 h-12 whitespace-nowrap text-center">
-                                                {item.nameProduct}
+                                                <div className='flex'>
+                                                    {item.price} <FaCaretUp color='green' /> <span className='text-green-500'>156%</span>
+                                                </div>
                                             </td>
                                             <td className="px-6 h-12 whitespace-nowrap text-center">
                                                 {item.nameProduct}
@@ -161,33 +181,49 @@ export default function SalesReport() {
                 <div className='flex gap-4'>
                     <Card className='w-full'>
                         <div className='flex gap-2'>
-                            <MdOutlineAttachMoney color='white' className='bg-red-500 rounded' size={16}/>
+                            <MdOutlineAttachMoney color='white' className='bg-red-500 rounded' size={16} />
                             <h1 className='font-bold '>Total Revenue</h1>
                         </div>
                         <p className='ml-6 text-gray-500 text-xl'>Rp. 43.405.000 <span className='text-green-500 text-green-500 bg-green-100 p-1 font-bold rounded-full text-xs'>+5%</span></p>
                     </Card>
                     <Card className='w-full'>
                         <div className='flex gap-2'>
-                            <MdOutlinePriceChange color='white' className='bg-red-500 rounded' size={16}/>
+                            <MdOutlinePriceChange color='white' className='bg-red-500 rounded' size={16} />
                             <h1 className='font-bold'>Average Revenue</h1>
                         </div>
                         <p className='ml-6 text-gray-500 text-xl'>Rp. 12.997.000 <span className='text-green-500 bg-green-100 p-1 font-bold rounded-full text-xs'>+9%</span></p>
                     </Card>
                     <Card className='w-full'>
                         <div className='flex gap-2'>
-                            <MdShoppingCart color='white' className='bg-red-500 rounded' size={16}/>
+                            <MdShoppingCart color='white' className='bg-red-500 rounded' size={16} />
                             <h1 className='font-bold'>Total Order</h1>
                         </div>
                         <p className='ml-6 text-gray-500 text-lg'>25000 Order<span className='text-green-500 text-green-500 bg-green-100 p-1 font-bold rounded-full text-xs'> +7%</span></p>
                     </Card>
                 </div>
-                <div className='my-4'/>
-                <Chart
-                    options={dataChart?.options}
-                    series={dataChart?.series}
-                    type="area"
-                    height={280}
-                />
+                <div className='my-4' />
+                <Card>
+                    <div className='flex justify-between'>
+                        <div className='flex gap-2'>
+                            <div className='bg-red-500 text-white rounded-lg font-bold p-2'>Time</div>
+                            <div className='text-red-500 font-bold border border-red-500 rounded-lg p-2'>Marketplace</div>
+                            <div className='text-red-500 font-bold border border-red-500 rounded-lg p-2'>Indikator</div>
+                        </div>
+                        <div>
+                            <select name="cars" id="cars" defaultValue="Sales Channel" className="text-red-500 cursor-pointer font-bold bg-white p-2 rounded-lg">
+                                <option value="volvo">Revenue</option>
+                                <option value="volvo">Revenue 1</option>
+                                <option value="volvo">Revenue 2</option>
+                            </select>
+                        </div>
+                    </div>
+                    <Chart
+                        options={dataChart?.options}
+                        series={dataChart?.series}
+                        type="area"
+                        height={280}
+                    />
+                </Card>
             </section>
         </Layout>
     )
