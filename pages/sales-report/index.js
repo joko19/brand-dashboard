@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import Card from '../../components/Cards/Card'
 import Layout from '../../Layout/Layout'
+import { IoIosStats } from 'react-icons/io'
+import { IoAlertSharp } from 'react-icons/io5'
+import {MdOutlineAttachMoney, MdOutlinePriceChange, MdShoppingCart} from 'react-icons/md'
 import dynamic from 'next/dynamic';
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
@@ -88,7 +91,10 @@ export default function SalesReport() {
                 <div className='flex flex-col md:flex-row w-full gap-4'>
                     <div className='flex w-full md:w-1/2 bg-white rounded '>
                         <Card className='w-full'>
-                            <h1 className='font-bold text-xl'>Product Sold</h1>
+                            <div className='flex gap-2'>
+                                <IoAlertSharp color='white' className='bg-red-500 rounded' size={24} />
+                                <p className='font-bold text-xl flex gap-2'> Product Sold</p>
+                            </div>
                             <Chart options={productSoldDonut.options} series={productSoldDonut.series} type="donut" width="100%" />
                             <Chart
                                 options={productSoldBar.options}
@@ -100,23 +106,26 @@ export default function SalesReport() {
                     </div>
                     <div className='flex w-full'>
                         <Card className='w-full'>
-                            <h1 className='font-bold text-xl'>Best Selling Product</h1>
+                            <div className='flex gap-2'>
+                                <IoIosStats color='white' className='bg-red-500 rounded' size={24} />
+                                <p className='font-bold text-xl'>Best Selling Product</p>
+                            </div>
                             <table className="table md:min-w-full overflow-auto divide-y divide-gray-200 text-sm">
-                                <thead className="bg-black-9" >
-                                    <th scope="col" className="px-6 h-12 text- tracking-wider">
-                                        Name
+                                <thead className="text-gray-500" >
+                                    <th scope="col" className="px-6 h-12 tracking-wider">
+                                        Product Name
                                     </th>
-                                    <th scope="col" className="px-6 h-12 text- tracking-wider">
-                                        Price
+                                    <th scope="col" className="px-6 h-12 tracking-wider">
+                                        Revenue
                                     </th>
-                                    <th scope="col" className="px-6 h-12 text- tracking-wider">
-                                        Total Sold
+                                    <th scope="col" className="px-6 h-12 tracking-wider">
+                                        Sold
                                     </th>
-                                    <th scope="col" className="px-6 h-12 text- tracking-wider">
-                                        Lorem Ipsum
+                                    <th scope="col" className="px-6 h-12 tracking-wider">
+                                        Customer
                                     </th>
-                                    <th scope="col" className="px-6 h-12 text- tracking-wider">
-                                        Lorem Ipsum
+                                    <th scope="col" className="px-6 h-12 tracking-wider">
+                                        Marketplace
                                     </th>
                                 </thead>
                                 <tbody className="bg-white divide-y divide-gray-200">
@@ -151,18 +160,28 @@ export default function SalesReport() {
                 <h1 className='text-red-500 font-bold text-3xl'>Sales Performance</h1>
                 <div className='flex gap-4'>
                     <Card className='w-full'>
-                        <h1 className='font-bold'>Total Revenue</h1>
-                        <p>Rp. 43.405.000 <span className='text-green-500'>+5%</span></p>
+                        <div className='flex gap-2'>
+                            <MdOutlineAttachMoney color='white' className='bg-red-500 rounded' size={16}/>
+                            <h1 className='font-bold '>Total Revenue</h1>
+                        </div>
+                        <p className='ml-6 text-gray-500 text-xl'>Rp. 43.405.000 <span className='text-green-500 text-green-500 bg-green-100 p-1 font-bold rounded-full text-xs'>+5%</span></p>
                     </Card>
                     <Card className='w-full'>
-                        <h1 className='font-bold'>Average Revenue</h1>
-                        <p>Rp. 12.997.000 <span className='text-green-500'>+9%</span></p>
+                        <div className='flex gap-2'>
+                            <MdOutlinePriceChange color='white' className='bg-red-500 rounded' size={16}/>
+                            <h1 className='font-bold'>Average Revenue</h1>
+                        </div>
+                        <p className='ml-6 text-gray-500 text-xl'>Rp. 12.997.000 <span className='text-green-500 bg-green-100 p-1 font-bold rounded-full text-xs'>+9%</span></p>
                     </Card>
                     <Card className='w-full'>
-                        <h1 className='font-bold'>Total Order</h1>
-                        <p>25000 Order<span className='text-green-500'> +7%</span></p>
+                        <div className='flex gap-2'>
+                            <MdShoppingCart color='white' className='bg-red-500 rounded' size={16}/>
+                            <h1 className='font-bold'>Total Order</h1>
+                        </div>
+                        <p className='ml-6 text-gray-500 text-lg'>25000 Order<span className='text-green-500 text-green-500 bg-green-100 p-1 font-bold rounded-full text-xs'> +7%</span></p>
                     </Card>
                 </div>
+                <div className='my-4'/>
                 <Chart
                     options={dataChart?.options}
                     series={dataChart?.series}
