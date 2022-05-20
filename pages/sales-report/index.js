@@ -20,18 +20,16 @@ export default function SalesReport() {
                 id: "basic-bar"
             },
             xaxis: {
-                categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
+                categories: [1991, 1992, 1993, 1994]
             },
+            colors: '#aa0f0f'
         },
         series: [
             {
                 name: "series-1",
-                data: [30, 40, 45, 50, 49, 60, 70, 91]
+                data: [80, 40, 70, 61]
             }
-        ],
-        theme: {
-            pallete: 'pallete1'
-        }
+        ]
     })
     const [listProductSold, setListProductSold] = useState([{
         nameProduct: "lorem ipsum",
@@ -81,7 +79,13 @@ export default function SalesReport() {
             xaxis: {
                 categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Des"]
             },
-            colors: ['#d03737', '#00ff2f', '#0008ff']
+            colors: ['#d03737', '#00ff2f', '#0008ff'],
+            yaxis: [{
+                title: {
+                    text: 'Total Revenue (Rp)',
+                },
+
+            }]
         },
     })
 
@@ -119,7 +123,7 @@ export default function SalesReport() {
                         </Card>
                     </div>
                     <div className='flex w-full'>
-                        <Card className='w-full'>
+                        <Card className='w-full overflow-x-auto'>
                             <div className='flex gap-2'>
                                 <IoIosStats color='white' className='bg-red-500 rounded' size={24} />
                                 <p className='font-bold text-xl'>Best Selling Product</p>
