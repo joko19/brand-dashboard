@@ -128,6 +128,7 @@ export default function KolDashboard() {
                     series={kolInsight.series}
                     type="line"
                     width="100%"
+                    height="360"
                 />
             </section>
         </Layout>
