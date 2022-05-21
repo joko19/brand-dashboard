@@ -2,22 +2,13 @@ import Card from '../components/Cards/Card'
 import Layout from '../Layout/Layout'
 import { IoIosStats } from 'react-icons/io'
 import { IoAlertSharp } from 'react-icons/io5'
+import { useEffect } from 'react'
 
 export default function Home() {
+    useEffect(() => {
+        window.location.href = '/home'
+    }, [])
     return (
-        <Layout>
-            <section className='flex'>
-                <Card className='w-full'>
-                    <div className='flex gap-2'>
-                        <IoIosStats color='white' className='bg-red-500 rounded' size={16} />
-                        <h1 className='font-bold'>Average Revenue</h1>
-                        <IoAlertSharp color='white' className='bg-red-500 rounded-full' size={16} />
-                    </div>
-                </Card>
-                <Card>
-
-                </Card>
-            </section>
-        </Layout>
+        <div className='text-center my-12'>Loading...</div>
     )
 }
