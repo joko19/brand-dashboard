@@ -1,13 +1,20 @@
+import { useState } from 'react'
 import Card from '../../components/Cards/Card'
 import Layout from '../../Layout/Layout'
 import { IoIosStats } from 'react-icons/io'
-import { IoAlertSharp } from 'react-icons/io5'
+import { IoAlertSharp, IoLocation } from 'react-icons/io5'
 import { FaCaretDown, FaCaretUp } from 'react-icons/fa'
-// import Map from '../../components/Map/Map'
 import dynamic from "next/dynamic";
 const MapWithNoSSR = dynamic(() => import("../../components/Map/Map"), { ssr: false });
+const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 export default function Home() {
+    const [productSoldDonut, setproductSoldDonut] = useState({
+        options: {
+            legend: false
+        },
+        series: [77, 23],
+    })
     return (
         <Layout>
             <section className='flex flex-col md:flex-row gap-4'>
@@ -42,9 +49,21 @@ export default function Home() {
             <div className='my-4' />
             <section className='flex gap-4'>
                 <Card className='w-1/3'>
-                    hello
+                    <div className='flex gap-2'>
+                        <IoAlertSharp color='white' className='bg-red-500 rounded' size={16} />
+                        <h1>Pembeli baru vs Pembeli lama</h1>
+                        <IoAlertSharp color='white' className='bg-red-500 rounded-full my-auto' size={12} />
+                    </div>
+                    <div className='my-auto'>
+                        <Chart options={productSoldDonut.options} series={productSoldDonut.series} type="donut" width="100%" />
+                    </div>
                 </Card>
                 <Card className='w-full'>
+                    <div className='flex gap-2'>
+                        <IoLocation color='white' className='bg-red-500 rounded' size={16} />
+                        <h1>Geolokasi Pelanggan</h1>
+                        <IoAlertSharp color='white' className='bg-red-500 rounded-full my-auto' size={12} />
+                    </div>
                     <MapWithNoSSR />
                 </Card>
             </section>
