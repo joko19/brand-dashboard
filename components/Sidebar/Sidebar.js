@@ -23,7 +23,8 @@ function Sidebar() {
         path: '/master-data'
     }]
     return (
-        <div className="py-16 bg-red-500 fixed h-screen">
+        <div className="bg-red-500 fixed h-screen">
+            <img src="/xeratic.png" alt="icon dashboard" className="hidden md:flex" />
             <ul className="px-4 inline-block w-60 md:inline-block hidden">
                 {menu.map((item, index) => {
                     const isActive = router.pathname.indexOf(item.path) !== -1

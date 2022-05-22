@@ -3,11 +3,14 @@ import Layout from '../../Layout/Layout'
 import { IoIosStats } from 'react-icons/io'
 import { IoAlertSharp } from 'react-icons/io5'
 import { FaCaretDown, FaCaretUp } from 'react-icons/fa'
+// import Map from '../../components/Map/Map'
+import dynamic from "next/dynamic";
+const MapWithNoSSR = dynamic(() => import("../../components/Map/Map"), { ssr: false });
 
 export default function Home() {
     return (
         <Layout>
-            <section className='flex gap-4'>
+            <section className='flex flex-col md:flex-row gap-4'>
                 <Card className='w-full'>
                     <div className='flex gap-2'>
                         <IoIosStats color='white' className='bg-red-500 rounded' size={16} />
@@ -34,6 +37,15 @@ export default function Home() {
                     </div>
                     <p className='text-gray-800 text-xl'>7 / Pelanggan <span className='text-green-500 mx-1 bg-green-100 p-1 font-bold rounded-full text-xs'>+4%</span></p>
                     <p className='text-gray-400 text-xs flex'><FaCaretUp color='green' />9 dari periode 12 belas bulan sebelumnya</p>
+                </Card>
+            </section>
+            <div className='my-4' />
+            <section className='flex gap-4'>
+                <Card className='w-1/3'>
+                    hello
+                </Card>
+                <Card className='w-full'>
+                    <MapWithNoSSR />
                 </Card>
             </section>
         </Layout>
