@@ -41,21 +41,21 @@ const Map = () => {
     }
 
     const mapPolygonColorToDensity = (density => {
-        return density > 3023
+        return density > 200
             ? '#a50f15'
-            : density > 676
+            : density > 100
                 ? '#de2d26'
-                : density > 428
+                : density > 50
                     ? '#fb6a4a'
-                    : density > 236
+                    : density > 25
                         ? '#fc9272'
-                        : density > 23
+                        : density > 10
                             ? '#fcbba1'
                             : '#fee5d9';
     })
     const style = (feature => {
         return ({
-            fillColor: mapPolygonColorToDensity(feature.properties.Desnity),
+            fillColor: mapPolygonColorToDensity(feature.count),
             weight: 1,
             opacity: 1,
             color: 'white',
@@ -82,8 +82,12 @@ const Map = () => {
                             url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"
                         />
                         {features && (
-                            <GeoJSON data={features}
-                            />)}
+                            // <GeoJSON data={features} />
+
+                            <GeoJSON data={feature}
+                                style={style}
+                                onEachFeature={onEachFeature} />
+                        )}
                     </MapContainer>
                 </div>
             </div>

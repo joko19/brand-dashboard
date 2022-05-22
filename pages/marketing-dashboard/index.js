@@ -87,7 +87,7 @@ export default function MarketingDashboard() {
     return (
         <Layout>
             {/* Marketing Performance */}
-            <section className='p-4'>
+            <section>
                 <h1 className='text-red-500 font-bold text-3xl'>Marketing Performance</h1>
                 <div className='flex flex-col md:flex-row gap-4'>
                     <div className='flex w-full'>
