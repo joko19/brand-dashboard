@@ -46,14 +46,63 @@ export default function MarketingDashboard() {
             colors: ['#7778e3', '#e3d677', '#85e377'],
         },
     })
+    const [leadFunnel, setLeadFunnel] = useState([
+        {
+            name: "Web Visits",
+            total: "164,283",
+            percentage: '',
+            isUp: true
+        },
+        {
+            name: "Caputured Lead",
+            total: "7,532",
+            percentage: '4.6%',
+            isUp: true
+        },
+        {
+            name: "Qualified Lead",
+            total: "4,632",
+            percentage: '61.5%',
+            isUp: false
+        },
+        {
+            name: "Sales Accepted",
+            total: "4,042",
+            percentage: '87.3%',
+            isUp: false
+        },
+        {
+            name: "Opportunity",
+            total: "1,832",
+            percentage: '45.3%',
+            isUp: true
+        },
+        {
+            name: "Win",
+            total: "262",
+            percentage: '14.3%',
+            isUp: true
+        },
+    ])
     return (
         <Layout>
             {/* Marketing Performance */}
-            <section>
+            <section className='p-4'>
                 <h1 className='text-red-500 font-bold text-3xl'>Marketing Performance</h1>
-                <div className='flex'>
+                <div className='flex flex-col md:flex-row gap-4'>
                     <div className='flex w-full'>
-
+                        <Card className='w-full'>
+                            <p className='mb-2'>Lead Funnel</p>
+                            <div className='flex flex-col'>
+                                {leadFunnel.map((value, index) => (
+                                    <div className='flex text-lg' key={index}>
+                                        <div className='w-full text-gray-700'>{value.name}</div>
+                                        <div className='w-full text-gray-700'>{value.total}</div>
+                                        <div className={`w-full ${value.isUp ? 'text-green-500' : 'text-red-500'}`}>{value.percentage}</div>
+                                    </div>
+                                ))}
+                            </div>
+                        </Card>
                     </div>
                     <div className='flex w-full'>
                         <Card className='w-full'>
@@ -62,6 +111,7 @@ export default function MarketingDashboard() {
                                 options={dataChart?.options}
                                 series={dataChart?.series}
                                 type="area"
+                                height="180"
                             />
                         </Card>
                     </div>
