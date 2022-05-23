@@ -7,10 +7,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.1.0",
     "@devexpress/dx-react-core": "^3.0.3",
     "@devexpress/dx-react-scheduler": "^3.0.3",
     "@devexpress/dx-react-scheduler-material-ui": "^3.0.3",
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
     "apexcharts": "^3.35.2",
+    "framer-motion": "^6.3.3",
     "leaflet": "^1.8.0",
     "next": "12.1.4",
     "react": "18.0.0",

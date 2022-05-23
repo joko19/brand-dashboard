@@ -4,6 +4,8 @@ import dynamic from 'next/dynamic';
 import Card from '../components/Cards/Card';
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 import { ViewState } from '@devexpress/dx-react-scheduler';
+import { Progress } from '@chakra-ui/react'
+import { FaCaretDown, FaCaretUp } from 'react-icons/fa'
 import {
     Scheduler,
     DayView,
@@ -92,7 +94,7 @@ export default function MarketingDashboard() {
                 <div className='flex flex-col md:flex-row gap-4'>
                     <div className='flex w-full'>
                         <Card className='w-full'>
-                            <p className='mb-2'>Lead Funnel</p>
+                            <p className='text-red-500 font-bold mb-2'>Lead Funnel</p>
                             <div className='flex flex-col'>
                                 {leadFunnel.map((value, index) => (
                                     <div className='flex text-lg' key={index}>
@@ -106,7 +108,7 @@ export default function MarketingDashboard() {
                     </div>
                     <div className='flex w-full'>
                         <Card className='w-full'>
-                            <p>Traffic Sources</p>
+                            <p className='text-red-500 font-bold mb-2'>Traffic Sources</p>
                             <Chart
                                 options={dataChart?.options}
                                 series={dataChart?.series}
@@ -117,12 +119,50 @@ export default function MarketingDashboard() {
                     </div>
                 </div>
             </section>
+            <div className='my-4' />
+            <section className='flex gap-4'>
+                <Card className='w-full'>
+                    <p className='text-red-500 font-bold mb-2'>Lead This Month</p>
+                    <div className='flex gap-4'>
+                        <div className='w-full'>
+                            <p className='font-bold'>Leads(Today)</p>
+                            <p>77</p>
+                            <Progress hasStripe value={23} colorScheme='red' />
+                        </div>
+                        <div className='w-full'>
+                            <p className='font-bold'>Leads(This Month)</p>
+                            <p>2,310</p>
+                            <Progress hasStripe value={80} colorScheme='green' />
+                        </div>
+                        <div className='w-full'>
+                            <p className='font-bold'>Web Users</p>
+                            <p>155,456</p>
+                            <Progress hasStripe value={64} colorScheme='green' />
+                        </div>
+                    </div>
+                </Card>
+                <Card className='w-1/2'>
+                    <p className='text-red-500 font-bold mb-2'>Key Metrics</p>
+                    <div>
+                        <div className='flex'>
+                            <FaCaretDown color='red' size={42} /><p className='text-3xl font-bold'>$775.5K</p>
+                        </div>
+                        <p className='text-xs'>Total revenue MTD, compared to $1,005.8K last month</p>
+                    </div>
+                    <div>
+                        <div className='flex'>
+                            <FaCaretDown color='red' size={42} /><p className='text-3xl font-bold'>$14.5K</p>
+                        </div>
+                        <p className='text-xs'>Average revenue MTD, compared to $45.8K last month</p>
+                    </div>
+                </Card>
+            </section>
 
             <div className='my-4' />
             {/* Marketing Calendar */}
             <section>
                 <h1 className='text-red-500 font-bold text-3xl'>Marketing Calendar</h1>
-                <Scheduler
+                {/* <Scheduler
                     data={schedulerData}
                 >
                     <ViewState
@@ -130,7 +170,7 @@ export default function MarketingDashboard() {
                     />
                     <MonthView />
                     <Appointments />
-                </Scheduler>
+                </Scheduler> */}
             </section>
         </Layout>
     )

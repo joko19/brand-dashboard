@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
-// import './Map.css';
 import 'leaflet/dist/leaflet.css';
-//import 'bootstrap/dist/css/bootstrap.min.css';
-import { features } from '../../data/indonesia.json'
+import data from '../../data/indonesia.json'
 
 
 const Map = () => {
@@ -68,7 +66,7 @@ const Map = () => {
         width: '100%',
         margin: '0 auto',
     }
-    const feature = features.map(feature => {
+    const feature = data.features.map(feature => {
         return (feature);
     });
     return (
@@ -81,7 +79,7 @@ const Map = () => {
                             attribution="Map tiles by Carto, under CC BY 3.0. Data by OpenStreetMap, under ODbL."
                             url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"
                         />
-                        {features && (
+                        {data.features && (
                             // <GeoJSON data={features} />
 
                             <GeoJSON data={feature}
