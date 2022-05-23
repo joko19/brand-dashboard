@@ -3,7 +3,7 @@ import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import Card from '../components/Cards/Card';
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
-import { ViewState } from '@devexpress/dx-react-scheduler';
+import { ViewState, IntegratedEditing, EditingState } from '@devexpress/dx-react-scheduler';
 import Paper from '@mui/material/Paper';
 import { FaCaretDown, FaCaretUp } from 'react-icons/fa'
 import {
@@ -11,14 +11,15 @@ import {
     DayView,
     WeekView,
     Appointments,
+    AppointmentForm,
     MonthView
 } from '@devexpress/dx-react-scheduler-material-ui';
 import ProgressBar from '../components/ProgressBar/ProgressBar';
 
 const currentDate = '2022-05-22';
 const schedulerData = [
-    { startDate: '2022-01-01T09:45', endDate: '2018-11-01T11:00', title: 'Meeting' },
-    { startDate: '2022-31-01T12:00', endDate: '2018-11-01T13:30', title: 'Go to a gym' },
+    { startDate: '2022-05-01T09:45', endDate: '2018-11-01T11:00', title: 'Meeting' },
+    { startDate: '2022-05-01T12:00', endDate: '2018-11-01T13:30', title: 'Go to a gym' },
 ];
 
 export default function MarketingDashboard() {
@@ -88,6 +89,11 @@ export default function MarketingDashboard() {
             isUp: true
         },
     ])
+
+    const saveAppointment = () => {
+        // save
+    }
+
     return (
         <Layout>
             {/* Marketing Performance */}
@@ -170,8 +176,11 @@ export default function MarketingDashboard() {
                     <ViewState
                         currentDate={currentDate}
                     />
+                    <EditingState onCommitChanges={saveAppointment}/>
+                    <IntegratedEditing/>
                     <MonthView />
                     <Appointments />
+                    <AppointmentForm/>
                 </Scheduler>
             </section>
         </Layout>
