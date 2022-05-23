@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import Card from '../../components/Cards/Card'
-import Layout from '../../Layout/Layout'
+import Card from '../components/Cards/Card'
+import Layout from '../Layout/Layout'
 import { IoIosStats } from 'react-icons/io'
 import { IoAlertSharp, IoLocation } from 'react-icons/io5'
 import { FaCaretDown, FaCaretUp } from 'react-icons/fa'
 import dynamic from "next/dynamic";
-const MapWithNoSSR = dynamic(() => import("../../components/Map/Map"), { ssr: false });
+const MapWithNoSSR = dynamic(() => import("../components/Map/Map"), { ssr: false });
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 export default function Home() {

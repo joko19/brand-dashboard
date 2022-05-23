@@ -1,5 +1,5 @@
-import Card from '../../components/Cards/Card'
-import Layout from '../../Layout/Layout'
+import Card from '../components/Cards/Card'
+import Layout from '../Layout/Layout'
 import { IoPerson, IoArrowDownOutline, IoArrowUpOutline } from 'react-icons/io5'
 import { AiFillPicture } from 'react-icons/ai'
 import { BsLightningChargeFill, BsFillBookmarkFill } from 'react-icons/bs'

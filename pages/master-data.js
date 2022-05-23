@@ -1,4 +1,4 @@
-import Layout from '../../Layout/Layout'
+import Layout from '../Layout/Layout'
 import { useState } from 'react'
 
 export default function MasterData() {
@@ -39,7 +39,7 @@ export default function MasterData() {
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200 text-gray-700">
                         {dataRaw.map((item, index) => (
-                            <tr key={index} className="h-12">
+                            <tr key={index} className="h-12 hover:bg-gray-100">
                                 <td className="px-6 h-12 whitespace-nowrap text-center">
                                     12/04/22
                                 </td>

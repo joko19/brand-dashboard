@@ -1,9 +1,9 @@
-import Layout from '../../Layout/Layout'
-import Card from '../../components/Cards/Card'
+import Layout from '../Layout/Layout'
+import Card from '../components/Cards/Card'
 import { IoAlertSharp, IoLocation } from 'react-icons/io5'
 import dynamic from "next/dynamic";
 import { useState } from 'react';
-const MapWithNoSSR = dynamic(() => import("../../components/Map/Map"), { ssr: false });
+const MapWithNoSSR = dynamic(() => import("../components/Map/Map"), { ssr: false });
 
 export default function CustomerDatabase() {
     const [totalCustomer, setTotalCustomer] = useState([{

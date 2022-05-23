@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import Card from '../../components/Cards/Card'
-import Layout from '../../Layout/Layout'
+import Card from '../components/Cards/Card'
+import Layout from '../Layout/Layout'
 import { IoIosStats } from 'react-icons/io'
 import { IoAlertSharp } from 'react-icons/io5'
 import { MdOutlineAttachMoney, MdOutlinePriceChange, MdShoppingCart } from 'react-icons/md'
@@ -148,7 +148,7 @@ export default function SalesReport() {
                                 </thead>
                                 <tbody className="bg-white divide-y divide-gray-200">
                                     {listProductSold.map((item, index) => (
-                                        <tr key={index} className="h-12">
+                                        <tr key={index} className="h-12 hover:bg-gray-100">
                                             <td className="px-6 h-12 whitespace-nowrap text-center">
                                                 {item.nameProduct}
                                             </td>

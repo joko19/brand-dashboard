@@ -1,7 +1,7 @@
-import Layout from '../../Layout/Layout'
+import Layout from '../Layout/Layout'
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
-import Card from '../../components/Cards/Card';
+import Card from '../components/Cards/Card';
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 import { ViewState } from '@devexpress/dx-react-scheduler';
 import {
