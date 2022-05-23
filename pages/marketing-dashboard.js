@@ -4,14 +4,16 @@ import dynamic from 'next/dynamic';
 import Card from '../components/Cards/Card';
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 import { ViewState } from '@devexpress/dx-react-scheduler';
-import { Progress } from '@chakra-ui/react'
+import Paper from '@mui/material/Paper';
 import { FaCaretDown, FaCaretUp } from 'react-icons/fa'
 import {
     Scheduler,
     DayView,
+    WeekView,
     Appointments,
     MonthView
 } from '@devexpress/dx-react-scheduler-material-ui';
+import ProgressBar from '../components/ProgressBar/ProgressBar';
 
 const currentDate = '2022-05-22';
 const schedulerData = [
@@ -127,17 +129,17 @@ export default function MarketingDashboard() {
                         <div className='w-full'>
                             <p className='font-bold'>Leads(Today)</p>
                             <p>77</p>
-                            <Progress hasStripe value={23} colorScheme='red' />
+                            <ProgressBar percentage={45} />
                         </div>
                         <div className='w-full'>
                             <p className='font-bold'>Leads(This Month)</p>
                             <p>2,310</p>
-                            <Progress hasStripe value={80} colorScheme='green' />
+                            <ProgressBar percentage={80} />
                         </div>
                         <div className='w-full'>
                             <p className='font-bold'>Web Users</p>
                             <p>155,456</p>
-                            <Progress hasStripe value={64} colorScheme='green' />
+                            <ProgressBar percentage={95} />
                         </div>
                     </div>
                 </Card>
@@ -162,7 +164,7 @@ export default function MarketingDashboard() {
             {/* Marketing Calendar */}
             <section>
                 <h1 className='text-red-500 font-bold text-3xl'>Marketing Calendar</h1>
-                {/* <Scheduler
+                <Scheduler
                     data={schedulerData}
                 >
                     <ViewState
@@ -170,7 +172,7 @@ export default function MarketingDashboard() {
                     />
                     <MonthView />
                     <Appointments />
-                </Scheduler> */}
+                </Scheduler>
             </section>
         </Layout>
     )
