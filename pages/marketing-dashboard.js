@@ -97,8 +97,8 @@ export default function MarketingDashboard() {
     return (
         <Layout>
             {/* Marketing Performance */}
-            <section>
-                <h1 className='text-red-500 font-bold text-3xl'>Marketing Performance</h1>
+            <section className='px-4'>
+                <h1 className='text-red-500 font-bold text-3xl mb-4'>Marketing Performance</h1>
                 <div className='flex flex-col md:flex-row gap-4'>
                     <div className='flex w-full'>
                         <Card className='w-full'>
@@ -128,7 +128,7 @@ export default function MarketingDashboard() {
                 </div>
             </section>
             <div className='my-4' />
-            <section className='flex gap-4'>
+            <section className='flex gap-4 px-4'>
                 <Card className='w-full'>
                     <p className='text-red-500 font-bold mb-2'>Lead This Month</p>
                     <div className='flex gap-4'>
@@ -166,10 +166,10 @@ export default function MarketingDashboard() {
                 </Card>
             </section>
 
-            <div className='my-4' />
+            <div className='my-8' />
             {/* Marketing Calendar */}
-            <section>
-                <h1 className='text-red-500 font-bold text-3xl'>Marketing Calendar</h1>
+            <section className='px-4'>
+                <h1 className='text-red-500 font-bold text-3xl mb-4'>Marketing Calendar</h1>
                 <Scheduler
                     data={schedulerData}
                 >

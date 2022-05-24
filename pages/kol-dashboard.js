@@ -46,8 +46,8 @@ export default function KolDashboard() {
     return (
         <Layout>
             {/* KOL Performance */}
-            <section>
-                <h1 className='text-red-500 font-bold text-3xl'>KOL Performance</h1>
+            <section className='px-4'>
+                <h1 className='text-red-500 font-bold text-3xl mb-4'>KOL Performance</h1>
                 <div className='flex flex-wrap mx-auto gap-2'>
                     <Card className='w-40'>
                         <div className='flex flex-row justify-between'>
@@ -113,23 +113,25 @@ export default function KolDashboard() {
             </section>
             <div className='my-4' />
             {/* KOL Insight */}
-            <section>
-                <h1 className='text-red-500 font-bold text-3xl'>KOL Insight</h1>
-                <div className='flex flex-wrap gap-4'>
-                    <div className='border rounded p-1 flex gap-1 text-gray-800'> <input type="checkbox" className='my-auto' /> Follower <div className='bg-red-200 w-3 h-3 rounded my-auto' /></div>
-                    <div className='border rounded p-1 flex gap-1 text-gray-800'> <input type="checkbox" className='my-auto' /> Post <div className='bg-red-500 w-3 h-3 rounded my-auto' /></div>
-                    <div className='border rounded p-1 flex gap-1 text-gray-800'> <input type="checkbox" className='my-auto' /> Reach <div className='bg-yellow-500 w-3 rounded h-3 my-auto' /></div>
-                    <div className='border rounded p-1 flex gap-1 text-gray-800'> <input type="checkbox" className='my-auto' /> Like <div className='bg-red-700 w-3 h-3 rounded my-auto' /></div>
-                    <div className='border rounded p-1 flex gap-1 text-gray-800'> <input type="checkbox" className='my-auto' /> Comment <div className='bg-green-500 w-3 rounded h-3 my-auto' /></div>
-                    <div className='border rounded p-1 flex gap-1 text-gray-800'> <input type="checkbox" className='my-auto' /> Save <div className='bg-orange-500 w-3 rounded h-3 my-auto' /></div>
-                </div>
-                <Chart
-                    options={kolInsight.options}
-                    series={kolInsight.series}
-                    type="line"
-                    width="100%"
-                    height="360"
-                />
+            <section className='px-4 my-4'>
+                <h1 className='text-red-500 font-bold text-3xl mb-4'>KOL Insight</h1>
+                <Card>
+                    <div className='flex flex-wrap gap-4'>
+                        <div className='border rounded p-1 flex gap-1 text-gray-800'> <input type="checkbox" className='my-auto' /> Follower <div className='bg-red-200 w-3 h-3 rounded my-auto' /></div>
+                        <div className='border rounded p-1 flex gap-1 text-gray-800'> <input type="checkbox" className='my-auto' /> Post <div className='bg-red-500 w-3 h-3 rounded my-auto' /></div>
+                        <div className='border rounded p-1 flex gap-1 text-gray-800'> <input type="checkbox" className='my-auto' /> Reach <div className='bg-yellow-500 w-3 rounded h-3 my-auto' /></div>
+                        <div className='border rounded p-1 flex gap-1 text-gray-800'> <input type="checkbox" className='my-auto' /> Like <div className='bg-red-700 w-3 h-3 rounded my-auto' /></div>
+                        <div className='border rounded p-1 flex gap-1 text-gray-800'> <input type="checkbox" className='my-auto' /> Comment <div className='bg-green-500 w-3 rounded h-3 my-auto' /></div>
+                        <div className='border rounded p-1 flex gap-1 text-gray-800'> <input type="checkbox" className='my-auto' /> Save <div className='bg-orange-500 w-3 rounded h-3 my-auto' /></div>
+                    </div>
+                    <Chart
+                        options={kolInsight.options}
+                        series={kolInsight.series}
+                        type="line"
+                        width="100%"
+                        height="360"
+                    />
+                </Card>
             </section>
         </Layout>
     )

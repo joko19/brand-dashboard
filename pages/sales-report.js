@@ -92,7 +92,7 @@ export default function SalesReport() {
     return (
         <Layout>
             {/* product performance */}
-            <section>
+            <section className='px-4'>
                 <h1 className='text-red-500 font-bold text-3xl'>Product Performance</h1>
                 <div className='flex gap-4 mt-4 mb-4'>
                     <select name="cars" id="cars" defaultValue="Sales Channel" className="text-red-500 cursor-pointer font-bold bg-white border-2 border-red-500 p-2 rounded-lg">
@@ -178,10 +178,10 @@ export default function SalesReport() {
                     </div>
                 </div>
             </section>
-            <div className='my-12' />
+            <div className='my-8' />
             {/* sales channel */}
-            <section>
-                <h1 className='text-red-500 font-bold text-3xl'>Sales Performance</h1>
+            <section className='px-4'>
+                <h1 className='text-red-500 font-bold text-3xl mb-4'>Sales Performance</h1>
                 <div className='flex gap-4'>
                     <Card className='w-full'>
                         <div className='flex gap-2'>

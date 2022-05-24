@@ -78,7 +78,7 @@ const Map = () => {
                         <TileLayer
                             attribution="Map tiles by Carto, under CC BY 3.0. Data by OpenStreetMap, under ODbL."
                             url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"
-                        />
+                        />  
                         {data.features && (
                             // <GeoJSON data={features} />
 

@@ -17,7 +17,7 @@ export default function Home() {
     })
     return (
         <Layout>
-            <section className='flex flex-col md:flex-row gap-4'>
+            <section className='flex flex-col md:flex-row gap-4 px-4'>
                 <Card className='w-full'>
                     <div className='flex gap-2'>
                         <IoIosStats color='white' className='bg-red-500 rounded' size={16} />
@@ -47,7 +47,7 @@ export default function Home() {
                 </Card>
             </section>
             <div className='my-4' />
-            <section className='flex gap-4'>
+            <section className='flex gap-4 px-4'>
                 <Card className='w-1/3'>
                     <div className='flex gap-2'>
                         <IoAlertSharp color='white' className='bg-red-500 rounded' size={16} />
