@@ -31,14 +31,14 @@ function Sidebar() {
                 </div>
                 <div className={`${path === '/sales-report/product-performance' ? 'text-white bg-red-400 shadow-lg rounded-r border-l' : ' text-white'} flex justify-between px-2`}>
                     <Link href='/sales-report/product-performance' >
-                        <a className={`flex gap-4 mt-1 inline-block block py-2 text-black-3 `}>
+                        <a className={`flex gap-4 mt-1 inline-block block py-1 text-black-3 `}>
                             <MdOutlinePriceCheck color='white' />     <span className="text-sm"> Product Performance</span>
                         </a>
                     </Link>
                 </div>
                 <div className={`${path === '/sales-report/channel' ? 'text-white bg-red-400 shadow-lg rounded-r border-l' : ' text-white'} flex justify-between px-2`}>
                     <Link href='/sales-report/channel' >
-                        <a className={`flex gap-4 mt-1 inline-block block py-2 text-black-3 `}>
+                        <a className={`flex gap-4 mt-1 inline-block block py-1 text-black-3 `}>
                             <MdOutlineInsights color='white' /><span className="text-sm"> Sales Channel</span>
                         </a>
                     </Link>
@@ -48,14 +48,14 @@ function Sidebar() {
                 </div>
                 <div className={`${path === '/marketing/performance' ? 'text-white bg-red-400 shadow-lg rounded-r border-l' : ' text-white'} flex justify-between px-2`}>
                     <Link href='/marketing/performance' >
-                        <a className={`flex gap-4 mt-1 inline-block block py-2 text-black-3 `}>
+                        <a className={`flex gap-4 mt-1 inline-block block py-1 text-black-3 `}>
                             <AiOutlinePercentage color='white' />  <span className="text-sm"> Performance</span>
                         </a>
                     </Link>
                 </div>
                 <div className={`${path === '/marketing/calendar' ? 'text-white bg-red-400 shadow-lg rounded-r border-l' : ' text-white'} flex justify-between px-2`}>
                     <Link href='/marketing/calendar' >
-                        <a className={`flex gap-4 mt-1 inline-block block py-2 text-black-3 `}>
+                        <a className={`flex gap-4 mt-1 inline-block block py-1 text-black-3 `}>
                             <FiCalendar color='white' /><span className="text-sm">Calendar</span>
                         </a>
                     </Link>
@@ -65,14 +65,14 @@ function Sidebar() {
                 </div>
                 <div className={`${path === '/kol-dashboard/campaign-performance' ? 'text-white bg-red-400 shadow-lg rounded-r border-l' : ' text-white'} flex justify-between px-2`}>
                     <Link href='/kol-dashboard/campaign-performance' >
-                        <a className={`flex gap-4 mt-1 inline-block block py-2 text-black-3 `}>
+                        <a className={`flex gap-4 mt-1 inline-block block py-1 text-black-3 `}>
                             <IoShareSocial color='white' />   <span className="text-sm"> Campaign Performance</span>
                         </a>
                     </Link>
                 </div>
                 <div className={`${path === '/kol-dashboard/insight' ? 'text-white bg-red-400 shadow-lg rounded-r border-l' : ' text-white'} flex justify-between px-2`}>
                     <Link href='/kol-dashboard/insight' >
-                        <a className={`flex gap-4 mt-1 inline-block block py-2 text-black-3 `}>
+                        <a className={`flex gap-4 mt-1 inline-block block py-1 text-black-3 `}>
                             <IoStatsChart color="white" /> <span className="text-sm"> KOL Insight</span>
                         </a>
                     </Link>
@@ -82,14 +82,14 @@ function Sidebar() {
                 </div>
                 <div className={`${path === '/master-data/product' ? 'text-white bg-red-400 shadow-lg rounded-r border-l' : ' text-white'} flex justify-between px-2`}>
                     <Link href='/master-data/product' >
-                        <a className={`flex gap-4 mt-1 inline-block block py-2 text-black-3 `}>
+                        <a className={`flex gap-4 mt-1 inline-block block py-1 text-black-3 `}>
                             <AiFillDatabase color='white' />   <span className="text-sm"> Product</span>
                         </a>
                     </Link>
                 </div>
                 <div className={`${path === '/master-data/penjualan' ? 'text-white bg-red-400 shadow-lg rounded-r border-l' : ' text-white'} flex justify-between px-2`}>
                     <Link href='/master-data/penjualan' >
-                        <a className={`flex gap-4 mt-1 inline-block block py-2 text-black-3 `}>
+                        <a className={`flex gap-4 mt-1 inline-block block py-1 text-black-3 `}>
                             <MdShoppingCart color="white" /> <span className="text-sm"> Penjualan</span>
                         </a>
                     </Link>
