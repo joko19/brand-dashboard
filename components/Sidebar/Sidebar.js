@@ -1,16 +1,16 @@
 import { useRouter } from "next/router";
 import Link from 'next/link'
-import { AiOutlinePercentage, AiOutlineHome } from 'react-icons/ai'
+import { AiOutlinePercentage, AiOutlineHome,AiOutlineShoppingCart, AiFillDatabase } from 'react-icons/ai'
 import { IoStatsChart, IoShareSocial } from 'react-icons/io5'
 import { FiCalendar } from 'react-icons/fi'
-import { HiOutlineUsers, HiUsers } from 'react-icons/hi'
-import {MdOutlinePriceCheck, MdOutlineInsights} from 'react-icons/md'
+import { HiOutlineUsers} from 'react-icons/hi'
+import {MdOutlinePriceCheck, MdOutlineInsights, MdShoppingCart} from 'react-icons/md'
 
 function Sidebar() {
     const router = useRouter();
     const path = router.asPath
     return (
-        <div className="bg-red-500 fixed h-screen">
+        <div className="bg-red-500 fixed min-h-screen overflow-y-auto">
             <img src="/xeratic.png" alt="icon dashboard" className="hidden md:flex w-full w-32 py-4 ml-6" />
             <ul className="px-4 inline-block w-60 md:inline-block hidden">
                 <div className={`${path === '/home' ? 'text-white bg-red-400 shadow-lg rounded-r border-l' : ' text-white'} flex justify-between px-2`}>
@@ -79,6 +79,20 @@ function Sidebar() {
                 </div>
                 <div className={`text-white p-2 mt-1 font-bold`}>
                     Master Data
+                </div>
+                <div className={`${path === '/master-data/product' ? 'text-white bg-red-400 shadow-lg rounded-r border-l' : ' text-white'} flex justify-between px-2`}>
+                    <Link href='/master-data/product' >
+                        <a className={`flex gap-4 mt-1 inline-block block py-2 text-black-3 `}>
+                            <AiFillDatabase color='white' />   <span className="text-sm"> Product</span>
+                        </a>
+                    </Link>
+                </div>
+                <div className={`${path === '/master-data/penjualan' ? 'text-white bg-red-400 shadow-lg rounded-r border-l' : ' text-white'} flex justify-between px-2`}>
+                    <Link href='/master-data/penjualan' >
+                        <a className={`flex gap-4 mt-1 inline-block block py-2 text-black-3 `}>
+                            <MdShoppingCart color="white" /> <span className="text-sm"> Penjualan</span>
+                        </a>
+                    </Link>
                 </div>
             </ul>
         </div>
