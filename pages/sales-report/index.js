@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import Card from '../components/Cards/Card'
-import Layout from '../Layout/Layout'
+import Card from '../../components/Cards/Card'
+import Layout from '../../Layout/Layout'
 import { IoIosStats } from 'react-icons/io'
 import { IoAlertSharp } from 'react-icons/io5'
 import { MdOutlineAttachMoney, MdOutlinePriceChange, MdShoppingCart } from 'react-icons/md'
@@ -181,7 +181,7 @@ export default function SalesReport() {
             <div className='my-8' />
             {/* sales channel */}
             <section className='px-4'>
-                <h1 className='text-red-500 font-bold text-3xl mb-4'>Sales Performance</h1>
+                <h1 className='text-red-500 font-bold text-3xl mb-4'>Sales Channel</h1>
                 <div className='flex gap-4'>
                     <Card className='w-full'>
                         <div className='flex gap-2'>

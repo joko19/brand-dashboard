@@ -1,6 +1,6 @@
-import Layout from '../Layout/Layout'
+import Layout from '../../Layout/Layout'
 import { useState } from 'react'
-import Card from '../components/Cards/Card'
+import Card from '../../components/Cards/Card'
 
 export default function MasterData() {
     const tableHead = ['Tanggal', 'ID Order', 'Produk', 'Qty', 'Customer', 'Alamat', 'No HP', 'Kurir', 'Resi', 'Status Order']

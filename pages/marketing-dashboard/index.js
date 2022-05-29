@@ -1,7 +1,7 @@
-import Layout from '../Layout/Layout'
+import Layout from '../../Layout/Layout'
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
-import Card from '../components/Cards/Card';
+import Card from '../../components/Cards/Card';
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 import { ViewState, IntegratedEditing, EditingState } from '@devexpress/dx-react-scheduler';
 import Paper from '@mui/material/Paper';
@@ -14,7 +14,7 @@ import {
     AppointmentForm,
     MonthView
 } from '@devexpress/dx-react-scheduler-material-ui';
-import ProgressBar from '../components/ProgressBar/ProgressBar';
+import ProgressBar from '../../components/ProgressBar/ProgressBar';
 
 const currentDate = '2022-05-22';
 const schedulerData = [
