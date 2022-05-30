@@ -45,7 +45,7 @@ export default function SalesReport() {
     return (
         <Layout>
             <section className='px-4'>
-                <h1 className='text-red-500 font-bold text-3xl mb-4'>Sales Channel</h1>
+                {/* <h1 className='text-red-500 font-bold text-3xl mb-4'>Sales Channel</h1>
                 <div className='flex gap-4'>
                     <Card className='w-full'>
                         <div className='flex gap-2'>
@@ -91,7 +91,7 @@ export default function SalesReport() {
                         type="area"
                         height={280}
                     />
-                </Card>
+                </Card> */}
             </section>
         </Layout>
     )
