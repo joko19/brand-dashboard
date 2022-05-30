@@ -31,15 +31,15 @@ export default function MasterData() {
     return (
         <Layout>
             <section className='px-4'>
-                <div className='flex justify-between'>
+                <div className='flex flex-col md:flex-row justify-between mb-4'>
                     <h1 className='text-red-500 font-bold text-3xl mb-4'>Penjualan</h1>
                     <div className='flex gap-2'>
                         <div>
-                            <button className='flex bg-blue-500 inline-block p-2 text-white rounded hover:bg-blue-600' onClick={() => setShowAddModal(true)}>Tambah Penjualan</button>
+                            <button className='flex bg-blue-500 inline-block p-2 text-white rounded hover:bg-blue-600 text-xs md:text-lg' onClick={() => setShowAddModal(true)}>Tambah Penjualan</button>
                         </div>
                         <div>
 
-                            <label htmlFor="excel" className='flex bg-green-500 inline-block p-2 text-white rounded hover:bg-green-600 cursor-pointer'>Import Excel</label>
+                            <label htmlFor="excel" className='flex bg-green-500 inline-block p-2 text-white rounded hover:bg-green-600 cursor-pointer text-xs md:text-lg'>Import Excel</label>
                             <input type="file" id='excel' className='flex hidden bg-green-500 inline-block p-2 text-white rounded hover:bg-green-600' />
                         </div>
                     </div>

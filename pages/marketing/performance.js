@@ -84,9 +84,9 @@ export default function MarketingDashboard() {
                             <div className='flex flex-col'>
                                 {leadFunnel.map((value, index) => (
                                     <div className='flex text-lg' key={index}>
-                                        <div className='w-full text-gray-700'>{value.name}</div>
-                                        <div className='w-full text-gray-700'>{value.total}</div>
-                                        <div className={`w-full ${value.isUp ? 'text-green-500' : 'text-red-500'}`}>{value.percentage}</div>
+                                        <div className='w-full text-gray-700 text-xs md:text-lg'>{value.name}</div>
+                                        <div className='w-full text-gray-700 text-xs md:text-lg'>{value.total}</div>
+                                        <div className={`w-full text-xs md:text-lg ${value.isUp ? 'text-green-500' : 'text-red-500'}`}>{value.percentage}</div>
                                     </div>
                                 ))}
                             </div>
@@ -106,10 +106,10 @@ export default function MarketingDashboard() {
                 </div>
             </section>
             <div className='my-4' />
-            <section className='flex gap-4 px-4'>
+            <section className='flex flex-col md:flex-row gap-4 px-4'>
                 <Card className='w-full'>
                     <p className='text-red-500 font-bold mb-2'>Lead This Month</p>
-                    <div className='flex gap-4'>
+                    <div className='flex flex-col md:flex-row gap-4'>
                         <div className='w-full'>
                             <p className='font-bold'>Leads(Today)</p>
                             <p>77</p>
@@ -127,7 +127,7 @@ export default function MarketingDashboard() {
                         </div>
                     </div>
                 </Card>
-                <Card className='w-1/2'>
+                <Card className='w-full md:w-1/2'>
                     <p className='text-red-500 font-bold mb-2'>Key Metrics</p>
                     <div>
                         <div className='flex'>

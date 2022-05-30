@@ -6,7 +6,8 @@ import dynamic from 'next/dynamic';
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 export default function SalesReport() {
-    const [dataChart, setDataChart] = useState({
+    const [activeChart, setActiveChart] = useState('byTime')
+    const [dataChartbyTime, setDataChartbyTime] = useState({
         series: [{
             name: 'Previous Revenue',
             data: [19, 25, 33, 29, 54, 17, 33, 21, 6, 5, 6, 12]
@@ -41,11 +42,46 @@ export default function SalesReport() {
             }]
         },
     })
+    const [dataChartbyMarketPlace, setDataChartbyMarketPlace] = useState({
+        series: [{
+            name: 'Previous Revenue',
+            data: [54, 17, 33, 21, 6]
+        }, {
+            name: 'Current Revenue',
+            data: [69, 31, 32, 6, 30]
+        }, {
+            name: 'Average Revenue',
+            data: [16, 39, 59, 45, 25]
+        },],
+        options: {
+            chart: {
+                height: 350,
+                type: 'basic-bar'
+
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                curve: 'smooth'
+            },
+            xaxis: {
+                categories: ["Tokopedia", "Shopee", "Bukalapak", "Blibi", "Lazada"]
+            },
+            colors: ['#d03737', '#00ff2f', '#0008ff'],
+            yaxis: [{
+                title: {
+                    text: 'Total Revenue by Market Place',
+                },
+
+            }]
+        },
+    })
 
     return (
         <Layout>
             <section className='px-4'>
-                <div className='flex gap-4'>
+                <div className='flex flex-col md:flex-row gap-4'>
                     <Card className='w-full'>
                         <div className='flex gap-2'>
                             <MdOutlineAttachMoney color='white' className='bg-red-500 rounded' size={16} />
@@ -72,9 +108,8 @@ export default function SalesReport() {
                 <Card>
                     <div className='flex justify-between'>
                         <div className='flex gap-2'>
-                            <div className='bg-red-500 text-white rounded-lg font-bold p-2'>Time</div>
-                            <div className='text-red-500 font-bold border border-red-500 rounded-lg p-2'>Marketplace</div>
-                            <div className='text-red-500 font-bold border border-red-500 rounded-lg p-2'>Indikator</div>
+                            <div className={`${activeChart === 'byTime' ? 'bg-red-500 text-white rounded-lg font-bold p-2 cursor-pointer' : 'text-red-500 font-bold border border-red-500 rounded-lg p-2 cursor-pointer'}`} onClick={() => setActiveChart('byTime')}>Time</div>
+                            <div className={`${activeChart === 'byMarketPlace' ? 'bg-red-500 text-white rounded-lg font-bold p-2 cursor-pointer' : 'text-red-500 font-bold border border-red-500 rounded-lg p-2 cursor-pointer'}`} onClick={() => setActiveChart('byMarketPlace')}>Marketplace</div>
                         </div>
                         <div>
                             <select name="cars" id="cars" defaultValue="Sales Channel" className="text-red-500 cursor-pointer font-bold bg-white p-2 rounded-lg">
@@ -84,12 +119,21 @@ export default function SalesReport() {
                             </select>
                         </div>
                     </div>
-                    <Chart
-                        options={dataChart?.options}
-                        series={dataChart?.series}
-                        type="area"
-                        height={280}
-                    />
+                    {activeChart === 'byTime' ? (
+                        <Chart
+                            options={dataChartbyTime?.options}
+                            series={dataChartbyTime?.series}
+                            type="area"
+                            height={280}
+                        />
+                    ) : (
+                        <Chart
+                            options={dataChartbyMarketPlace?.options}
+                            series={dataChartbyMarketPlace?.series}
+                            type="bar"
+                            height={280}
+                        />
+                    )}
                 </Card>
             </section>
         </Layout>

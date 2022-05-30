@@ -19,7 +19,7 @@ export default function SalesReport() {
                 id: "basic-bar"
             },
             xaxis: {
-                categories: [1991, 1992, 1993, 1994]
+                categories: [2018, 2019, 2020, 2021]
             },
             colors: '#aa0f0f'
         },

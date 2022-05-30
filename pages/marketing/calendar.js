@@ -30,7 +30,7 @@ export default function MarketingDashboard() {
             {/* Marketing Calendar */}
             <section className='px-4'>
                 <h1 className='text-red-500 font-bold text-3xl mb-4'>Marketing Calendar</h1>
-                <div className='flex gap-4'>
+                <div className='flex flex-col md:flex-row gap-4'>
                     <Card className='w-full'>
                         <Scheduler
                             data={schedulerData}
@@ -45,7 +45,7 @@ export default function MarketingDashboard() {
                             <AppointmentForm />
                         </Scheduler>
                     </Card>
-                    <Card className='w-1/3'>
+                    <Card className='w-full md:w-1/3'>
                         <div className='flex gap-2'>
                             <MdOutlineEventNote color='white' className='bg-red-500 rounded my-auto' size={16} />
                             <h1 className='font-bold text-xl '>Your Note</h1>

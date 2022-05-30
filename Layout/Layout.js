@@ -9,7 +9,7 @@ export default function Layout(props) {
                     <div className="flex-none grow-0 bg-white h-full">
                         <Sidebar />
                     </div>
-                    <div className="  w-full pl-4  md:pl-64  pt-8 pr-4 grow">
+                    <div className="  w-full pl-4  md:pl-64 pt-16 md:pt-8 pr-4 grow">
                         {props.children}
                     </div>
                 </div>
