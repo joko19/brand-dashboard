@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import Card from '../components/Cards/Card'
 import Layout from '../Layout/Layout'
+import CustomModal from '../components/Modal/CustomModal';
 import { MdOutlineAttachMoney, MdOutlinePriceChange, MdShoppingCart } from 'react-icons/md'
 import dynamic from 'next/dynamic';
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 export default function SalesReport() {
     const [activeChart, setActiveChart] = useState('byTime')
+    const [showAddModal, setShowAddModal] = useState(false)
     const [dataChartbyTime, setDataChartbyTime] = useState({
         series: [{
             name: 'Previous Revenue',
@@ -80,6 +82,12 @@ export default function SalesReport() {
 
     return (
         <Layout>
+            <div className='flex justify-between px-4'>
+                <h1 className='text-red-500 font-bold text-3xl mb-4'>Dashboard</h1>
+                <div>
+                    <button className='flex bg-blue-500 inline-block p-2 text-white rounded hover:bg-blue-600' onClick={() => setShowAddModal(true)}>Add Data</button>
+                </div>
+            </div>
             <section className='px-4'>
                 <div className='flex flex-col md:flex-row gap-4'>
                     <Card className='w-full'>
@@ -136,6 +144,33 @@ export default function SalesReport() {
                     )}
                 </Card>
             </section>
+            <CustomModal visible={showAddModal} onClose={() => setShowAddModal(false)}>
+                <div className="bg-white w-96 p-5 rounded">
+                    <h1 className="font-bold text-2xl text-blue-500">
+                        Add Data for this Month
+                    </h1>
+                    <form>
+                        <div>
+                            <label className='text-gray-500 text-sm'>Total Revenue</label>
+                            <input type="text" className="w-full form border mt-1 p-2 rounded" placeholder="Pendapatan bulan ini" />
+                        </div>
+                        <div>
+                        </div>
+                        <div className='mt-2'>
+                            <label className='text-gray-500 text-sm'>Total Order</label>
+                            <input type="number" className="w-full form border mt-1 p-2 rounded" placeholder="Total order bulan ini" />
+                        </div>
+                        <div className='flex flex-row-reverse gap-4 mt-4'>
+                            <button className='bg-blue-500 p-2 text-white rounded cursor-pointer hover:bg-blue-600' onClick={() => setShowAddModal(false)}>
+                                Save
+                            </button>
+                            <div className='p-2 rounded cursor-pointer text-gray-700 bg-gray-200 hover:bg-gray-300' onClick={() => setShowAddModal(false)}>
+                                Cancel
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </CustomModal>
         </Layout>
     )
 }

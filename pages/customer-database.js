@@ -4,11 +4,13 @@ import Layout from '../Layout/Layout'
 import { IoIosStats } from 'react-icons/io'
 import { IoAlertSharp, IoLocation } from 'react-icons/io5'
 import { FaCaretDown, FaCaretUp } from 'react-icons/fa'
+import CustomModal from '../components/Modal/CustomModal'
 import dynamic from "next/dynamic";
 const MapWithNoSSR = dynamic(() => import("../components/Map/Map"), { ssr: false });
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 export default function Home() {
+    const [showAddModal, setShowAddModal] = useState(false)
     const [productSoldDonut, setproductSoldDonut] = useState({
         options: {
             legend: false
@@ -17,6 +19,12 @@ export default function Home() {
     })
     return (
         <Layout>
+            <div className='flex justify-between px-4'>
+                <h1 className='text-red-500 font-bold text-3xl mb-4'>Customer Database</h1>
+                <div>
+                    <button className='flex bg-blue-500 inline-block p-2 text-white rounded hover:bg-blue-600' onClick={() => setShowAddModal(true)}>Add Data</button>
+                </div>
+            </div>
             <section className='flex flex-col md:flex-row gap-4 px-4'>
                 <Card className='w-full'>
                     <div className='flex gap-2'>
@@ -67,6 +75,37 @@ export default function Home() {
                     <MapWithNoSSR />
                 </Card>
             </section>
+            <CustomModal visible={showAddModal} onClose={() => setShowAddModal(false)}>
+                <div className="bg-white w-96 p-5 rounded">
+                    <h1 className="font-bold text-2xl text-blue-500">
+                        Add Data for this Month
+                    </h1>
+                    <form>
+                        <div>
+                            <label className='text-gray-500 text-sm'>Total Pembeli</label>
+                            <input type="number" className="w-full form border mt-1 p-2 rounded" placeholder="Total pembeli bulan ini" />
+                        </div>
+                        <div>
+                        </div>
+                        <div className='mt-2'>
+                            <label className='text-gray-500 text-sm'>Penjualan per Pembeli</label>
+                            <input type="number" className="w-full form border mt-1 p-2 rounded" placeholder="total penjualan/pembeli dalam bulan ini" />
+                        </div>
+                        <div className='mt-2'>
+                            <label className='text-gray-500 text-sm'>Pesanan per Pembeli</label>
+                            <input type="number" className="w-full form border mt-1 p-2 rounded" placeholder="Total pesanan/pembeli dalam bulan ini" />
+                        </div>
+                        <div className='flex flex-row-reverse gap-4 mt-4'>
+                            <button className='bg-blue-500 p-2 text-white rounded cursor-pointer hover:bg-blue-600' onClick={() => setShowAddModal(false)}>
+                                Save
+                            </button>
+                            <div className='p-2 rounded cursor-pointer text-gray-700 bg-gray-200 hover:bg-gray-300' onClick={() => setShowAddModal(false)}>
+                                Cancel
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </CustomModal>
         </Layout>
     )
 }
