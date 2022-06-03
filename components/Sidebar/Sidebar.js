@@ -115,8 +115,8 @@ function Sidebar() {
             </div>
             {/* </div> */}
             {/* Desktop */}
-            <div className={`bg-red-500 fixed min-h-screen z-10 overflow-y-auto`}>
-                <img src="/xeratic.png" alt="icon dashboard" className="md:flex hidden w-full w-32 py-4 ml-6" />
+            <div className={`bg-red-500 fixed min-h-screen z-10 overflow-y-auto pt-4`}>
+                {/* <img src="/xeratic.png" alt="icon dashboard" className="md:flex hidden w-full w-32 py-4 ml-6" /> */}
                 <ul className="px-4 inline-block w-60 md:inline-block hidden">
                     <div className={`${path === '/home' ? 'text-white bg-red-400 shadow-lg rounded-r border-l' : ' text-white'} flex justify-between px-2`}>
                         <Link href='/home' >
